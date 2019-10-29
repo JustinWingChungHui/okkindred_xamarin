@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{76736035-279B-429C-8BD3-74A6C4AD2A32}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>okKindredXamarin.UWP</RootNamespace>
+    <AssemblyName>okKindredXamarin.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>WorkingWithWebview.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.12" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaseUrl.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="WebAssets\css\app.c4471012.css" />
+    <Content Include="WebAssets\css\chunk-vendors.2f7dbc6b.css" />
+    <Content Include="WebAssets\error.html" />
+    <Content Include="WebAssets\favicons\android-chrome-144x144.png" />
+    <Content Include="WebAssets\favicons\android-chrome-192x192.png" />
+    <Content Include="WebAssets\favicons\android-chrome-36x36.png" />
+    <Content Include="WebAssets\favicons\android-chrome-48x48.png" />
+    <Content Include="WebAssets\favicons\android-chrome-72x72.png" />
+    <Content Include="WebAssets\favicons\android-chrome-96x96.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-114x114.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-120x120.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-144x144.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-152x152.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-180x180.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-57x57.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-60x60.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-72x72.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-76x76.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon-precomposed.png" />
+    <Content Include="WebAssets\favicons\apple-touch-icon.png" />
+    <Content Include="WebAssets\favicons\favicon-16x16.png" />
+    <Content Include="WebAssets\favicons\favicon-194x194.png" />
+    <Content Include="WebAssets\favicons\favicon-32x32.png" />
+    <Content Include="WebAssets\favicons\favicon-96x96.png" />
+    <Content Include="WebAssets\favicons\favicon.ico" />
+    <Content Include="WebAssets\favicons\mstile-144x144.png" />
+    <Content Include="WebAssets\favicons\mstile-150x150.png" />
+    <Content Include="WebAssets\favicons\mstile-310x150.png" />
+    <Content Include="WebAssets\favicons\mstile-310x310.png" />
+    <Content Include="WebAssets\favicons\mstile-70x70.png" />
+    <Content Include="WebAssets\favicons\safari-pinned-tab.svg" />
+    <Content Include="WebAssets\img\about\justin_and_adrian.jpg" />
+    <Content Include="WebAssets\img\default-skin.b257fa9c.svg" />
+    <Content Include="WebAssets\img\gallery\folder.svg" />
+    <Content Include="WebAssets\img\gallery\gallery_thumb.jpg" />
+    <Content Include="WebAssets\img\gallery\image.svg" />
+    <Content Include="WebAssets\img\introduction\family_invite.png" />
+    <Content Include="WebAssets\img\introduction\family_map.png" />
+    <Content Include="WebAssets\img\introduction\family_photo-share.png" />
+    <Content Include="WebAssets\img\introduction\family_tree.png" />
+    <Content Include="WebAssets\img\open-iconic.eca2c267.svg" />
+    <Content Include="WebAssets\img\portrait_200.png" />
+    <Content Include="WebAssets\img\portrait_80.png" />
+    <Content Include="WebAssets\index.html" />
+    <Content Include="WebAssets\js\app.1a52fb11.js" />
+    <Content Include="WebAssets\js\chunk-vendors.75ec2199.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\okKindredXamarin\okKindredXamarin.csproj">
+      <Project>{f6b57ce3-8780-4d40-a34e-e430ecd36857}</Project>
+      <Name>okKindredXamarin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WebAssets\favicons\manifest.json" />
+    <None Include="WebAssets\fonts\open-iconic.3cf97837.woff" />
+    <None Include="WebAssets\fonts\open-iconic.47151e87.eot" />
+    <Content Include="WebAssets\fonts\open-iconic.527eff64.otf" />
+    <Content Include="WebAssets\fonts\open-iconic.93cc7aa6.ttf" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>
