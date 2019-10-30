@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace okKindredXamarin
@@ -35,10 +36,18 @@ namespace okKindredXamarin
 
         private void Browser_Navigating(object sender, WebNavigatingEventArgs e)
         {
-            if (e.Url.StartsWith("mailto"))
+
+            var prefixes = new List<string>{ "mailto", "http", "www" };
+
+            foreach (var prefix in prefixes)
             {
-                Device.OpenUri(new Uri(e.Url));
-                e.Cancel = true;
+                if (e.Url.ToLowerInvariant().StartsWith(prefix))
+                {
+                    Device.OpenUri(new Uri(e.Url));
+                    e.Cancel = true;
+
+                    return;
+                }
             }
         }
     }
