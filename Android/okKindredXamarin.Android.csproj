@@ -109,6 +109,25 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <AndroidAsset Include="Assets\img\default-skin.b257fa9c.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +167,7 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.5e638218.js" />
+    <AndroidAsset Include="Assets\js\app.33ed7143.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.75ec2199.js" />
@@ -160,10 +179,10 @@
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.5fdeaf2a.css" />
+    <AndroidAsset Include="Assets\css\app.a2e94062.css" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.2f7dbc6b.css" />
+    <AndroidAsset Include="Assets\css\chunk-vendors.82a606da.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
@@ -239,23 +258,5 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\ms-icon-70x70.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\splash_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\splash_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\splash_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\splash_logo.png" />
   </ItemGroup>
 </Project>

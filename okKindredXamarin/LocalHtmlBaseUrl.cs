@@ -8,7 +8,7 @@ namespace okKindredXamarin
 
     public class LocalHtmlBaseUrl : ContentPage
     {
-        WebView browser;
+        public WebView browser;
 
         public LocalHtmlBaseUrl()
         {
