@@ -14,7 +14,7 @@ using Android.Content.PM;
 
 namespace okKindredXamarin.Android
 {
-	[Activity (Label = "ok!Kindred", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, 
+	[Activity (Label = "ok!Kindred", Icon = "@drawable/icon", Theme = "@style/MainTheme",  
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     // App link
     [IntentFilter(new[] { Intent.ActionView },
