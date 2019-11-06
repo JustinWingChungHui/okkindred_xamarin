@@ -24,13 +24,19 @@ namespace okKindredXamarin
 
             if (this.browser.CanGoBack)
             {
+                // Starts with double navigation
                 this.browser.GoBack();
+                if (!this.browser.CanGoBack)
+                {
+                    return base.OnBackButtonPressed();
+                }
+
                 return true;
             }
+
             else
             {
-                base.OnBackButtonPressed();
-                return true;
+                return base.OnBackButtonPressed();
             }
         }
 

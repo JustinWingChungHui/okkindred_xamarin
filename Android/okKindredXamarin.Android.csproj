@@ -6,7 +6,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{7AA328E0-970B-46E9-933A-7F15AEA0BB12}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>okKindredXamarin.Android</RootNamespace>
+    <RootNamespace>okKindredXamarin.Droid</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -69,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilePathResolver.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -241,7 +242,7 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.fdf1f247.js" />
+    <AndroidAsset Include="Assets\js\app.3e6987a3.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.75ec2199.js" />
@@ -250,9 +251,9 @@
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.b57f6206.css" />
+    <AndroidAsset Include="Assets\css\app.79b4ca74.css" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.154b614c.css" />
+    <AndroidAsset Include="Assets\css\chunk-vendors.13905161.css" />
   </ItemGroup>
 </Project>

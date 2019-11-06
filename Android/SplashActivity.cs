@@ -13,7 +13,7 @@ using Xamarin.Forms.Platform.Android;
 using Android.Content.PM;
 
 
-namespace okKindredXamarin.Android
+namespace okKindredXamarin.Droid
 {
     [Activity(Theme = "@style/MainTheme.Splash", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : AppCompatActivity

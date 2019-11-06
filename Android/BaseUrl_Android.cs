@@ -1,10 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using okKindredXamarin;
-using okKindredXamarin.Android;
+using okKindredXamarin.Droid;
 
 [assembly: Dependency (typeof (BaseUrl_Android))]
-namespace okKindredXamarin.Android 
+namespace okKindredXamarin.Droid 
 {
 	public class BaseUrl_Android : IBaseUrl 
 	{
