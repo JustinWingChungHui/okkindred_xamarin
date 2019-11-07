@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.okkindred.app" android:installLocation="auto" android:versionCode="2" android:versionName="Second Beta Release">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.okkindred.app" android:installLocation="auto" android:versionCode="4" android:versionName="Shared data fix">
 	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="28" />
 	<application android:label="ok!Kindred" android:icon="@drawable/Icon"></application>
 	<uses-permission android:name="android.permission.INTERNET" />

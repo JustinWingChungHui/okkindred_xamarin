@@ -53,8 +53,7 @@ namespace okKindredXamarin.Droid
                 var uri = (Android.Net.Uri)Intent.Extras.GetParcelable(Intent.ExtraStream);
                 // var fileUrl = GetFilePath(uri);
 
-                var fileUrl = FilePathResolver.GetFilePath(ApplicationContext, uri);
-                var image = new UploadImage(fileUrl, Intent.Type);
+                var image = SharedContentResolver.CreateUploadImage(ApplicationContext, uri, Intent.Type);
                 var images = new List<UploadImage> { image };
                 app.setImageToUpload(images);
             } 
@@ -67,10 +66,7 @@ namespace okKindredXamarin.Droid
                 var fileObjects = Intent.Extras.GetParcelableArrayList(Intent.ExtraStream);
                 foreach (var obj in fileObjects)
                 {
-                    // var fileUrl = GetFilePath((Android.Net.Uri)obj);
-                    var fileUrl = FilePathResolver.GetFilePath(ApplicationContext, (Android.Net.Uri)obj);
-                    var image = new UploadImage(fileUrl, Intent.Type);
-
+                    var image = SharedContentResolver.CreateUploadImage(ApplicationContext, (Android.Net.Uri)obj, Intent.Type);
                     images.Add(image);
                 }
 
@@ -81,15 +77,6 @@ namespace okKindredXamarin.Droid
         protected override void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
-        }
-
-        private string GetFilePath(Android.Net.Uri uri)
-        {
-            string[] proj = { MediaStore.Images.ImageColumns.Data };
-            var cursor = ContentResolver.Query(uri, proj, null, null, null);
-            var colIndex = cursor.GetColumnIndex(MediaStore.Images.ImageColumns.Data);
-            cursor.MoveToFirst();
-            return cursor.GetString(colIndex);
         }
 
 

@@ -10,8 +10,15 @@ namespace okKindredXamarin.Models
         public UploadImage(string path, string type)
         {
             var data = File.ReadAllBytes(path);
-            this.Data = System.Convert.ToBase64String(data);
+            this.Data = Convert.ToBase64String(data);
             this.FileName = Path.GetFileName(path);
+            this.MimeType = type; // $"image/{Path.GetExtension(path)}";
+        }
+
+        public UploadImage(byte[] data, string filename, string type)
+        {
+            this.Data = Convert.ToBase64String(data);
+            this.FileName = filename;
             this.MimeType = type; // $"image/{Path.GetExtension(path)}";
         }
 
