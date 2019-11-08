@@ -43,8 +43,6 @@ namespace okKindredXamarin.Droid
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
             var app = new App();
-
-
             LoadApplication(app); // method is new in 1.3
 
             // Handle shared image
@@ -55,7 +53,7 @@ namespace okKindredXamarin.Droid
 
                 var image = SharedContentResolver.CreateUploadImage(ApplicationContext, uri, Intent.Type);
                 var images = new List<UploadImage> { image };
-                app.setImageToUpload(images);
+                app.SetSharedImagesToUpload(images);
             } 
             
             // Handle multiple shared images
@@ -70,7 +68,7 @@ namespace okKindredXamarin.Droid
                     images.Add(image);
                 }
 
-                app.setImageToUpload(images);
+                app.SetSharedImagesToUpload(images);
             }
         }
 

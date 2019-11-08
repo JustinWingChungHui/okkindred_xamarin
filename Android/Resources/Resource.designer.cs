@@ -6756,6 +6756,9 @@ namespace okKindredXamarin.Droid
 			// aapt resource value: 0x7F0C0037
 			public const int status_bar_notification_info_overflow = 2131492919;
 			
+			// aapt resource value: 0x7F0C0038
+			public const int user_agent_suffix = 2131492920;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
