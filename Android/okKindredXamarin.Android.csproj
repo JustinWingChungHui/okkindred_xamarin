@@ -128,6 +128,12 @@
     <AndroidResource Include="Resources\drawable-hdpi\splash_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\css\app.79b4ca74.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\chunk-vendors.911ea477.css" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
   </ItemGroup>
   <ItemGroup>
@@ -242,18 +248,12 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.b4f68cf7.js" />
+    <AndroidAsset Include="Assets\js\app.fede9b88.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.75ec2199.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.79b4ca74.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.13905161.css" />
   </ItemGroup>
 </Project>

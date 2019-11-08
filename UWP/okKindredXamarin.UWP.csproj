@@ -155,7 +155,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="WebAssets\css\app.79b4ca74.css" />
-    <Content Include="WebAssets\css\chunk-vendors.13905161.css" />
+    <Content Include="WebAssets\css\chunk-vendors.911ea477.css" />
     <Content Include="WebAssets\favicons\android-icon-144x144.png" />
     <Content Include="WebAssets\favicons\android-icon-192x192.png" />
     <Content Include="WebAssets\favicons\android-icon-36x36.png" />
@@ -195,7 +195,7 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.b4f68cf7.js" />
+    <Content Include="WebAssets\js\app.fede9b88.js" />
     <Content Include="WebAssets\js\chunk-vendors.75ec2199.js" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +214,7 @@
       <Name>okKindredXamarin</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="WebAssets\favicons\manifest.json" />
     <None Include="WebAssets\fonts\open-iconic.3cf97837.woff" />
