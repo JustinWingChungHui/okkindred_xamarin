@@ -28,7 +28,7 @@ namespace okKindredXamarin
         {
             none,
             route,
-            uploadImage,
+            shareImage,
         }
                                
 
@@ -37,12 +37,21 @@ namespace okKindredXamarin
             this._uploadImages = null;
             this._action = WebViewAction.none;
             this.MainPage = new LocalHtmlBaseUrl { Title = "BaseUrl" };
+
+            this.Browser.Navigating += Browser_Navigating;
 		}
+
+        // Capturing 
+        private void Browser_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            //TODO
+
+        }
 
         public void SetSharedImagesToUpload(List<UploadImage> uploadImage)
         {
             this._uploadImages = uploadImage;
-            this._action = WebViewAction.uploadImage;
+            this._action = WebViewAction.shareImage;
 
             // Make sure browser has navigated first.
             this.Browser.Navigated += Browser_Navigated;
@@ -73,15 +82,15 @@ namespace okKindredXamarin
                     this.NavigateToRoute();
                     break;
 
-                case WebViewAction.uploadImage:
-                    this.UploadImage();
+                case WebViewAction.shareImage:
+                    this.ShareImages();
                     break;
             }
 
            
         }
 
-        private void UploadImage()
+        private void ShareImages()
         {
             if (this._uploadImages != null && this._uploadImages.Count > 0)
             {
