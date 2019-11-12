@@ -112,6 +112,7 @@
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\OriginalLogo.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -148,13 +149,12 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="WebAssets\css\app.79b4ca74.css" />
+    <Content Include="WebAssets\css\app.e24320cd.css" />
     <Content Include="WebAssets\css\chunk-vendors.911ea477.css" />
     <Content Include="WebAssets\favicons\android-icon-144x144.png" />
     <Content Include="WebAssets\favicons\android-icon-192x192.png" />
@@ -177,6 +177,7 @@
     <Content Include="WebAssets\favicons\favicon-16x16.png" />
     <Content Include="WebAssets\favicons\favicon-32x32.png" />
     <Content Include="WebAssets\favicons\favicon-96x96.png" />
+    <Content Include="WebAssets\favicons\favicon.ico" />
     <Content Include="WebAssets\favicons\ms-icon-144x144.png" />
     <Content Include="WebAssets\favicons\ms-icon-150x150.png" />
     <Content Include="WebAssets\favicons\ms-icon-310x310.png" />
@@ -195,7 +196,7 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.fede9b88.js" />
+    <Content Include="WebAssets\js\app.bec5c697.js" />
     <Content Include="WebAssets\js\chunk-vendors.75ec2199.js" />
   </ItemGroup>
   <ItemGroup>
