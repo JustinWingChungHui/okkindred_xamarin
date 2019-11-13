@@ -8,14 +8,14 @@
 
   <Identity
     Name="bff28790-cef7-44ea-abf8-8458067c6a01"
-    Publisher="CN=Dave"
+    Publisher="CN=Tech Luminaire Ltd"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="bff28790-cef7-44ea-abf8-8458067c6a01" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>okKindredXamarin.UWP.App</DisplayName>
-    <PublisherDisplayName>Dave</PublisherDisplayName>
+    <PublisherDisplayName>Tech Luminaire Ltd</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

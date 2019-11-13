@@ -1,5 +1,4 @@
 ﻿using okKindredXamarin.Models;
-using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace okKindredXamarin
 	{
         private List<UploadImage> _uploadImages;
 
-        private Uri _appLink { get; set; }
+        private Uri _appLink;
 
         private WebViewAction _action;
 
@@ -41,45 +40,9 @@ namespace okKindredXamarin
             this._action = WebViewAction.startup;
             this.MainPage = new LocalHtmlBaseUrl { Title = "BaseUrl" };
 
-            this.Browser.Navigating += Browser_Navigating;
             this.Browser.Navigated += Browser_Navigated;
         }
 
-        // Capturing 
-        private async void Browser_Navigating(object sender, WebNavigatingEventArgs e)
-        {
-          
-            if (e.Url.Contains("xamarin_external_filepicker"))
-            {
-                e.Cancel = true;
-
-                var uploadMultiple = e.Url.Contains("multiple");
-
-                await CrossMedia.Current.Initialize();
-
-                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
-                {
-                    RotateImage = false
-                });
-
-                if (file != null)
-                {
-                    var uploadImages = new List<UploadImage>();
-                    using (var stream = file.GetStream())
-                    {
-                        uploadImages.Add(new UploadImage(stream, file.Path));
-                    }
-
-                    Device.BeginInvokeOnMainThread(async () =>
-                    {
-
-                        var imageParams = $"[{string.Join(",", uploadImages.Select(i => i.ToString()))}]";
-                        var cmd = $"viewModel.uploadFileFromExternalPicker({imageParams});";
-                        await this.Browser.EvaluateJavaScriptAsync(cmd);
-                    });
-                }
-            }
-        }
 
         public void SetSharedImagesToUpload(List<UploadImage> uploadImage)
         {
