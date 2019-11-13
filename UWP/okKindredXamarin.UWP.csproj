@@ -89,6 +89,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
   </ItemGroup>
   <ItemGroup>
@@ -196,7 +199,7 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.bec5c697.js" />
+    <Content Include="WebAssets\js\app.9aa0513b.js" />
     <Content Include="WebAssets\js\chunk-vendors.75ec2199.js" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +218,6 @@
       <Name>okKindredXamarin</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="WebAssets\favicons\manifest.json" />
     <None Include="WebAssets\fonts\open-iconic.3cf97837.woff" />

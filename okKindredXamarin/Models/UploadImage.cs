@@ -15,6 +15,21 @@ namespace okKindredXamarin.Models
             this.MimeType = type; // $"image/{Path.GetExtension(path)}";
         }
 
+        public UploadImage(Stream stream, string path)
+        {
+            byte[] data;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                stream.CopyTo(ms);
+                data = ms.ToArray();
+            }
+
+            this.Data = Convert.ToBase64String(data);
+            this.FileName = Path.GetFileName(path);
+            this.MimeType = $"image/{Path.GetExtension(path)}";
+        }
+
         public UploadImage(byte[] data, string filename, string type)
         {
             this.Data = Convert.ToBase64String(data);

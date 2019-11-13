@@ -1,7 +1,9 @@
 ﻿using okKindredXamarin.Models;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -27,6 +29,7 @@ namespace okKindredXamarin
         public enum WebViewAction
         {
             none,
+            startup,
             route,
             shareImage,
         }
@@ -35,17 +38,47 @@ namespace okKindredXamarin
         public App ()
 		{
             this._uploadImages = null;
-            this._action = WebViewAction.none;
+            this._action = WebViewAction.startup;
             this.MainPage = new LocalHtmlBaseUrl { Title = "BaseUrl" };
 
             this.Browser.Navigating += Browser_Navigating;
-		}
+            this.Browser.Navigated += Browser_Navigated;
+        }
 
         // Capturing 
-        private void Browser_Navigating(object sender, WebNavigatingEventArgs e)
+        private async void Browser_Navigating(object sender, WebNavigatingEventArgs e)
         {
-            //TODO
+          
+            if (e.Url.Contains("xamarin_external_filepicker"))
+            {
+                e.Cancel = true;
 
+                var uploadMultiple = e.Url.Contains("multiple");
+
+                await CrossMedia.Current.Initialize();
+
+                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                {
+                    RotateImage = false
+                });
+
+                if (file != null)
+                {
+                    var uploadImages = new List<UploadImage>();
+                    using (var stream = file.GetStream())
+                    {
+                        uploadImages.Add(new UploadImage(stream, file.Path));
+                    }
+
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+
+                        var imageParams = $"[{string.Join(",", uploadImages.Select(i => i.ToString()))}]";
+                        var cmd = $"viewModel.uploadFileFromExternalPicker({imageParams});";
+                        await this.Browser.EvaluateJavaScriptAsync(cmd);
+                    });
+                }
+            }
         }
 
         public void SetSharedImagesToUpload(List<UploadImage> uploadImage)
@@ -78,6 +111,10 @@ namespace okKindredXamarin
                 case WebViewAction.none:
                     break;
 
+                case WebViewAction.startup:
+                    this.OnStartup();
+                    break;
+
                 case WebViewAction.route:
                     this.NavigateToRoute();
                     break;
@@ -87,7 +124,17 @@ namespace okKindredXamarin
                     break;
             }
 
-           
+            this._action = WebViewAction.none;
+        }
+
+        private void OnStartup()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var userAgent = await this.Browser.EvaluateJavaScriptAsync("navigator.userAgent");
+                var cmd = $"viewModel.setUserAgent('{userAgent} xamarin');";
+                await this.Browser.EvaluateJavaScriptAsync(cmd);
+            });
         }
 
         private void ShareImages()
@@ -98,7 +145,7 @@ namespace okKindredXamarin
                 {
 
                     var imageParams = $"[{string.Join(",", this._uploadImages.Select(i => i.ToString()))}]";
-                    var cmd = $"viewModel.uploadFiles({imageParams});";
+                    var cmd = $"viewModel.uploadSharedFiles({imageParams});";
                     await this.Browser.EvaluateJavaScriptAsync(cmd);
                 });
             }
