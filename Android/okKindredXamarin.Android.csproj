@@ -134,6 +134,12 @@
     <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\css\app.ac9e4ef9.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\chunk-vendors.911ea477.css" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
   </ItemGroup>
   <ItemGroup>
@@ -251,18 +257,12 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.9aa0513b.js" />
+    <AndroidAsset Include="Assets\js\app.cf73234b.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.75ec2199.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.e24320cd.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.911ea477.css" />
   </ItemGroup>
 </Project>
