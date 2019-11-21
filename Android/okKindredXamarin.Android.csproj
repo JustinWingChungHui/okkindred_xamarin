@@ -56,7 +56,7 @@
       <Version>4.0.1.5</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.3.0.947036</Version>
+      <Version>4.3.0.991211</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -257,7 +257,7 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.cf73234b.js" />
+    <AndroidAsset Include="Assets\js\app.4ed3875d.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.75ec2199.js" />

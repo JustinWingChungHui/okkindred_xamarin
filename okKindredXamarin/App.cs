@@ -14,7 +14,7 @@ namespace okKindredXamarin
 
         private Uri _appLink;
 
-        private WebViewAction _action;
+        private Queue<WebViewAction> _actions;
 
         public WebView Browser
         {
@@ -27,7 +27,6 @@ namespace okKindredXamarin
         // Defines list of actions that can happen once webview is loaded
         public enum WebViewAction
         {
-            none,
             startup,
             route,
             shareImage,
@@ -37,7 +36,8 @@ namespace okKindredXamarin
         public App ()
 		{
             this._uploadImages = null;
-            this._action = WebViewAction.startup;
+            this._actions = new Queue<WebViewAction>();
+            this._actions.Enqueue(WebViewAction.startup);
             this.MainPage = new LocalHtmlBaseUrl { Title = "BaseUrl" };
 
             this.Browser.Navigated += Browser_Navigated;
@@ -47,7 +47,7 @@ namespace okKindredXamarin
         public void SetSharedImagesToUpload(List<UploadImage> uploadImage)
         {
             this._uploadImages = uploadImage;
-            this._action = WebViewAction.shareImage;
+            this._actions.Enqueue(WebViewAction.shareImage);
 
             // Make sure browser has navigated first.
             this.Browser.Navigated += Browser_Navigated;
@@ -58,7 +58,7 @@ namespace okKindredXamarin
             if (uri.Host.EndsWith("okkindred.com", StringComparison.OrdinalIgnoreCase))
             {
                 this._appLink = uri;
-                this._action = WebViewAction.route;
+                this._actions.Enqueue(WebViewAction.route);
 
                 // Make sure browser has navigated first.
                 this.Browser.Navigated += Browser_Navigated;
@@ -69,25 +69,25 @@ namespace okKindredXamarin
         {
             this.Browser.Navigated -= Browser_Navigated;
 
-            switch(this._action)
+            while (this._actions.Count > 0)
             {
-                case WebViewAction.none:
-                    break;
+                var action = this._actions.Dequeue();
 
-                case WebViewAction.startup:
-                    this.OnStartup();
-                    break;
+                switch (action)
+                {
+                    case WebViewAction.startup:
+                        this.OnStartup();
+                        break;
 
-                case WebViewAction.route:
-                    this.NavigateToRoute();
-                    break;
+                    case WebViewAction.route:
+                        this.NavigateToRoute();
+                        break;
 
-                case WebViewAction.shareImage:
-                    this.ShareImages();
-                    break;
+                    case WebViewAction.shareImage:
+                        this.ShareImages();
+                        break;
+                }
             }
-
-            this._action = WebViewAction.none;
         }
 
         private void OnStartup()
