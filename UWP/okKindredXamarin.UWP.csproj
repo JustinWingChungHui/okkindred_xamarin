@@ -93,7 +93,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.0.1.5</Version>
+      <Version>4.4.7-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
   </ItemGroup>

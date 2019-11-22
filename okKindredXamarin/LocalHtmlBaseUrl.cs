@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using okKindredXamarin.Models;
 using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -67,17 +68,37 @@ namespace okKindredXamarin
         {
             await CrossMedia.Current.Initialize();
 
-            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
-            {
-                RotateImage = false
-            });
+            var files = new List<MediaFile>() ;
 
-            if (file != null)
+            if (multiSelect)
             {
-                var uploadImages = new List<UploadImage>();
-                using (var stream = file.GetStream())
+                files = await CrossMedia.Current.PickPhotosAsync(new Plugin.Media.Abstractions.PickMediaOptions
                 {
-                    uploadImages.Add(new UploadImage(stream, file.Path));
+                    RotateImage = false
+                });
+            }
+            else
+            {
+                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                {
+                    RotateImage = false
+                });
+
+                if (file != null)
+                {
+                    files = new List<MediaFile> { file };
+                }
+            }
+
+            if (files.Any()) { 
+                var uploadImages = new List<UploadImage>();
+
+                foreach (var file in files)
+                {
+                    using (var stream = file.GetStream())
+                    {
+                        uploadImages.Add(new UploadImage(stream, file.Path));
+                    }
                 }
 
                 Device.BeginInvokeOnMainThread(async () =>
