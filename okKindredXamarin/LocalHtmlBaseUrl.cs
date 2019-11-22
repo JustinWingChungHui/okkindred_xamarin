@@ -72,10 +72,15 @@ namespace okKindredXamarin
 
             if (multiSelect)
             {
-                files = await CrossMedia.Current.PickPhotosAsync(new Plugin.Media.Abstractions.PickMediaOptions
-                {
-                    RotateImage = false
-                });
+                files = await CrossMedia.Current.PickPhotosAsync(
+                    new PickMediaOptions
+                    {
+                        RotateImage = false,
+                    }, 
+                    new MultiPickerOptions
+                    {
+                        MaximumImagesCount = 30,
+                    });
             }
             else
             {
