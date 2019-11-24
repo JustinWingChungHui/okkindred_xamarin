@@ -86,7 +86,6 @@
     <AndroidAsset Include="Assets\fonts\open-iconic.47151e87.eot" />
     <AndroidAsset Include="Assets\fonts\open-iconic.527eff64.otf" />
     <AndroidAsset Include="Assets\fonts\open-iconic.93cc7aa6.ttf" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +95,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Tabbar.axml" />
-    <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
   </ItemGroup>

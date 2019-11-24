@@ -1,32 +1,21 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Net;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-
-using Xamarin.Forms.Platform.Android;
 using Android.Content.PM;
-using Android.Provider;
-using System.IO;
 using Android;
-using System.Buffers.Text;
 using okKindredXamarin.Models;
 using System.Collections.Generic;
 
 namespace okKindredXamarin.Droid
 {
-	[Activity (Label = "ok!Kindred", Icon = "@drawable/icon", Theme = "@style/MainTheme",  
-		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Theme = "@style/MainTheme.Splash", MainLauncher = true)]
     // App link
     [IntentFilter(new[] { Intent.ActionView },
         DataScheme = "https",
         DataHost = "www.okkindred.com",
         AutoVerify = true,
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
+    // Share images
     [IntentFilter(new[] { Intent.ActionSend }, 
         Categories = new[] { Intent.CategoryDefault }, DataMimeType = "image/*", Label = "ok!Kindred")]
     [IntentFilter(new string[] { Intent.ActionSendMultiple },
