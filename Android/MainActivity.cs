@@ -8,7 +8,8 @@ using System.Collections.Generic;
 
 namespace okKindredXamarin.Droid
 {
-    [Activity(Theme = "@style/MainTheme.Splash", MainLauncher = true)]
+    [Activity(Theme = "@style/MainTheme.Splash", MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     // App link
     [IntentFilter(new[] { Intent.ActionView },
         DataScheme = "https",
