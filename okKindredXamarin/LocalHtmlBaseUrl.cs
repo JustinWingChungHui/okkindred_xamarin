@@ -42,25 +42,31 @@ namespace okKindredXamarin
 
         private async void Browser_Navigating(object sender, WebNavigatingEventArgs e)
         {
-
-            var prefixes = new List<string>{ "mailto", "http", "www" };
-
-            foreach (var prefix in prefixes)
+            try
             {
-                if (e.Url.ToLowerInvariant().StartsWith(prefix))
-                {
-                    await Launcher.OpenAsync(new Uri(e.Url));
-                    e.Cancel = true;
+                var prefixes = new List<string> { "mailto", "http", "www" };
 
-                    return;
+                foreach (var prefix in prefixes)
+                {
+                    if (e.Url.ToLowerInvariant().StartsWith(prefix))
+                    {
+                        await Launcher.OpenAsync(new Uri(e.Url));
+                        e.Cancel = true;
+
+                        return;
+                    }
+                }
+
+                if (e.Url.Contains("xamarin_external_filepicker"))
+                {
+                    e.Cancel = true;
+                    var uploadMultiple = e.Url.Contains("multiple");
+                    await this.UploadFileFromFilePicker(uploadMultiple);
                 }
             }
-
-            if (e.Url.Contains("xamarin_external_filepicker"))
+            catch(Exception ex)
             {
-                e.Cancel = true;
-                var uploadMultiple = e.Url.Contains("multiple");
-                await this.UploadFileFromFilePicker(uploadMultiple);
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
             }
         }
 
@@ -84,7 +90,7 @@ namespace okKindredXamarin
             }
             else
             {
-                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
                 {
                     RotateImage = false
                 });
@@ -95,7 +101,7 @@ namespace okKindredXamarin
                 }
             }
 
-            if (files.Any()) { 
+            if (files != null && files.Any()) { 
                 var uploadImages = new List<UploadImage>();
 
                 foreach (var file in files)

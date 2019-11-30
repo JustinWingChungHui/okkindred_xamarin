@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android;
 using okKindredXamarin.Models;
 using System.Collections.Generic;
+using Plugin.CurrentActivity;
 
 namespace okKindredXamarin.Droid
 {
@@ -30,7 +31,9 @@ namespace okKindredXamarin.Droid
 
             base.OnCreate (bundle);
 
-			global::Xamarin.Forms.Forms.Init (this, bundle);
+            CrossCurrentActivity.Current.Init(this, bundle);
+
+            global::Xamarin.Forms.Forms.Init (this, bundle);
 
             var app = new App();
             LoadApplication(app); // method is new in 1.3
@@ -83,6 +86,12 @@ namespace okKindredXamarin.Droid
                     RequestPermissions(permissions, 1);
                 }
             }
+        }
+
+        // https://github.com/jamesmontemagno/MediaPlugin
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
