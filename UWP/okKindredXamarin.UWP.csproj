@@ -160,7 +160,7 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="WebAssets\css\app.d8b06e8a.css" />
+    <Content Include="WebAssets\css\app.d0084b50.css" />
     <Content Include="WebAssets\css\chunk-vendors.b8823017.css" />
     <Content Include="WebAssets\favicons\android-icon-144x144.png" />
     <Content Include="WebAssets\favicons\android-icon-192x192.png" />
@@ -202,7 +202,7 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.f8cac0e7.js" />
+    <Content Include="WebAssets\js\app.0e1a7b96.js" />
     <Content Include="WebAssets\js\chunk-vendors.99d750d3.js" />
   </ItemGroup>
   <ItemGroup>

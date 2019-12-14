@@ -27,6 +27,8 @@ namespace okKindredXamarin.Droid
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
+            Window.SetSoftInputMode(Android.Views.SoftInput.AdjustResize);
+
             this.CheckAppPermissions();
 
             base.OnCreate (bundle);

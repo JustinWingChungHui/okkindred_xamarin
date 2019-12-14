@@ -52,6 +52,7 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <MandroidI18n />
     <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xam.Plugin.Media">
@@ -133,7 +134,16 @@
     <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.d8b06e8a.css" />
+    <AndroidAsset Include="Assets\js\app.0e1a7b96.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\chunk-vendors.99d750d3.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\app.d0084b50.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\css\chunk-vendors.b8823017.css" />
@@ -254,14 +264,5 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.f8cac0e7.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.99d750d3.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
 </Project>

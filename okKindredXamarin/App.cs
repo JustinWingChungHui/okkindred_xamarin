@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
+using AndroidSpecific = Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace okKindredXamarin
 {
@@ -33,6 +34,8 @@ namespace okKindredXamarin
 
         public App ()
 		{
+            // https://stackoverflow.com/questions/48425623/resize-webview-when-i-show-the-keyboard
+            AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);
             this._uploadImages = null;
             this._actions = new Queue<WebViewAction>();
             this._actions.Enqueue(WebViewAction.startup);

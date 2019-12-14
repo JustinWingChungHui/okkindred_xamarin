@@ -21,7 +21,6 @@ namespace okKindredXamarin
             this.browser = new WebView();
             this.browser.Source = DependencyService.Get<IBaseUrl>().Get() + "index.html";
             Content = this.browser;
-
             this.browser.Navigating += this.Browser_Navigating;
         }
 
