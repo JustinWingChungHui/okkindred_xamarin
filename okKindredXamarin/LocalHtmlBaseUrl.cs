@@ -84,7 +84,7 @@ namespace okKindredXamarin
                     }, 
                     new MultiPickerOptions
                     {
-                        MaximumImagesCount = 30,
+                        MaximumImagesCount = 10,
                     });
             }
             else

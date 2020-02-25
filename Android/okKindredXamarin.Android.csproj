@@ -59,7 +59,7 @@
       <Version>4.4.7-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.3.0.991211</Version>
+      <Version>4.4.0.991265</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -132,21 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\file_paths.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.384fcfbf.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.921d385c.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.1bbde24a.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.f6d2e0e7.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
@@ -264,5 +249,20 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\app.384fcfbf.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\chunk-vendors.921d385c.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\app.1bbde24a.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\chunk-vendors.f6d2e0e7.css" />
   </ItemGroup>
 </Project>
