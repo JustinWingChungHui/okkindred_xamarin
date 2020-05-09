@@ -7,15 +7,15 @@ namespace okKindredXamarin.Models
 {
     public class UploadImage
     {
-        public UploadImage(string path, string type)
+        public UploadImage(int index, string path)
         {
-            var data = File.ReadAllBytes(path);
-            this.Data = Convert.ToBase64String(data);
+            this.Index = index;
+            this.FilePath = path;
             this.FileName = Path.GetFileName(path);
-            this.MimeType = type; // $"image/{Path.GetExtension(path)}";
+            this.MimeType = $"image/{Path.GetExtension(path)}";
         }
 
-        public UploadImage(Stream stream, string path)
+        public UploadImage(int index, Stream stream, string path)
         {
             byte[] data;
 
@@ -25,17 +25,23 @@ namespace okKindredXamarin.Models
                 data = ms.ToArray();
             }
 
+            this.Index = index;
             this.Data = Convert.ToBase64String(data);
             this.FileName = Path.GetFileName(path);
             this.MimeType = $"image/{Path.GetExtension(path)}";
         }
 
-        public UploadImage(byte[] data, string filename, string type)
+        public UploadImage(int index, byte[] data, string filename, string type)
         {
+            this.Index = index;
             this.Data = Convert.ToBase64String(data);
             this.FileName = filename;
             this.MimeType = type; // $"image/{Path.GetExtension(path)}";
         }
+
+        public int Index { get; set; }
+
+        public string FilePath { get; set; }
 
         public string FileName { get; set; }
 
@@ -45,7 +51,14 @@ namespace okKindredXamarin.Models
 
         public override string ToString()
         {
-            return $"{{ base64Image: 'data:{MimeType};base64,{Data}', fileName: '{FileName}', mimeType: '{MimeType}' }}";
+            if (string.IsNullOrEmpty(Data))
+            {
+                return $"{{ index:{Index}, path:'{FilePath}', fileName:'{FileName}', mimeType:'{MimeType}' }}";
+            }
+            else
+            {
+                return $"{{ base64Image: 'data:{MimeType};base64,{Data}', index:{Index}, path:'{FilePath}', fileName:'{FileName}', mimeType:'{MimeType}' }}";
+            }            
         }
     }
 }

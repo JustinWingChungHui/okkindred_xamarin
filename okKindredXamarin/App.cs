@@ -9,11 +9,11 @@ namespace okKindredXamarin
 {
 	public class App : Application
 	{
+        private readonly Queue<WebViewAction> _actions;
+
         private List<UploadImage> _uploadImages;
 
         private Uri _appLink;
-
-        private Queue<WebViewAction> _actions;
 
         public WebView Browser
         {
@@ -109,7 +109,7 @@ namespace okKindredXamarin
                 {
 
                     var imageParams = $"[{string.Join(",", this._uploadImages.Select(i => i.ToString()))}]";
-                    var cmd = $"viewModel.uploadSharedFiles({imageParams});";
+                    var cmd = $"viewModel.uploadAndroidSharedFiles({imageParams});";
                     await this.Browser.EvaluateJavaScriptAsync(cmd);
                 });
             }

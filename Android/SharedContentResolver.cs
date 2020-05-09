@@ -17,15 +17,13 @@ namespace okKindredXamarin.Droid
             byte[] data;
             using (var stream = context.ContentResolver.OpenInputStream(uri))
             {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    stream.CopyTo(ms);
-                    data = ms.ToArray();
-                }
+                using MemoryStream ms = new MemoryStream();
+                stream.CopyTo(ms);
+                data = ms.ToArray();
             }
 
             var fileName = GetFileName(context, uri);
-            var image = new UploadImage(data, fileName, type);
+            var image = new UploadImage(0, data, fileName, type);
 
             return image;
         }

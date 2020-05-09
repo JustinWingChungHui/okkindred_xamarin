@@ -82,11 +82,12 @@
     <Compile Include="BaseUrl_Android.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <AndroidAsset Include="Assets\fonts\open-iconic.3cf97837.woff" />
     <AndroidAsset Include="Assets\fonts\open-iconic.47151e87.eot" />
     <AndroidAsset Include="Assets\fonts\open-iconic.527eff64.otf" />
     <AndroidAsset Include="Assets\fonts\open-iconic.93cc7aa6.ttf" />
+    <AndroidAsset Include="Assets\.well-known\assetlinks.json" />
+    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="sign.ps1" />
   </ItemGroup>
@@ -173,19 +174,25 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.f76ee133.js" />
+    <AndroidAsset Include="Assets\js\app.c0507517.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.5d64e737.js" />
+    <AndroidAsset Include="Assets\js\chunk-vendors.5453d077.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\error.html" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.8c498c1e.css" />
+    <AndroidAsset Include="Assets\.well-known\security.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.d39df8e5.css" />
+    <AndroidAsset Include="Assets\css\app.e4152951.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\chunk-vendors.60ccab15.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />

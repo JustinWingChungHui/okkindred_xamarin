@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using okKindredXamarin.Models;
 using Plugin.Media;
@@ -14,12 +15,17 @@ namespace okKindredXamarin
 
     public class LocalHtmlBaseUrl : ContentPage
     {
+        private UploadImages _uploadImages;
+
         public WebView browser;
 
         public LocalHtmlBaseUrl()
         {
-            this.browser = new WebView();
-            this.browser.Source = DependencyService.Get<IBaseUrl>().Get() + "index.html";
+            this.browser = new WebView
+            {
+                Source = DependencyService.Get<IBaseUrl>().Get() + "index.html"
+            };
+
             Content = this.browser;
             this.browser.Navigating += this.Browser_Navigating;
         }
@@ -62,11 +68,31 @@ namespace okKindredXamarin
                     var uploadMultiple = e.Url.Contains("multiple");
                     await this.UploadFileFromFilePicker(uploadMultiple);
                 }
+
+                if (e.Url.Contains("xamarin_request_android_image_data"))
+                {
+                    e.Cancel = true;
+                    // Match number at the end
+                    var regex = new Regex(@"\d+$");
+                    var index = regex.Match(e.Url).Value;
+                    this.UploadFileData(int.Parse(index));
+                }
             }
             catch(Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
             }
+        }
+
+        private void UploadFileData(int index)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+
+                var imageParam = _uploadImages.GetImageData(index).ToString();
+                var cmd = $"viewModel.uploadAndroidImageData({imageParam});";
+                await this.browser.EvaluateJavaScriptAsync(cmd);
+            });
         }
 
         private async Task UploadFileFromFilePicker(bool multiSelect)
@@ -84,7 +110,7 @@ namespace okKindredXamarin
                     }, 
                     new MultiPickerOptions
                     {
-                        MaximumImagesCount = 10,
+                        MaximumImagesCount = 100,
                     });
             }
             else
@@ -103,21 +129,15 @@ namespace okKindredXamarin
             if (files != null && files.Any()) { 
                 var uploadImages = new List<UploadImage>();
 
-                foreach (var file in files)
-                {
-                    using (var stream = file.GetStream())
-                    {
-                        uploadImages.Add(new UploadImage(stream, file.Path));
-                    }
-                }
-
+                this._uploadImages = new UploadImages(files);
                 Device.BeginInvokeOnMainThread(async () =>
                 {
 
-                    var imageParams = $"[{string.Join(",", uploadImages.Select(i => i.ToString()))}]";
-                    var cmd = $"viewModel.uploadFileFromExternalPicker({imageParams});";
+                    var imageParams = $"[{string.Join(",", _uploadImages.GetImageDetails().Select(i => i.ToString()))}]";
+                    var cmd = $"viewModel.uploadAndroidImageDetails({imageParams});";
                     await this.browser.EvaluateJavaScriptAsync(cmd);
                 });
+
             }
         }
     }
