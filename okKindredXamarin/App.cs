@@ -11,9 +11,13 @@ namespace okKindredXamarin
 	{
         private readonly Queue<WebViewAction> _actions;
 
-        private List<UploadImage> _uploadImages;
-
         private Uri _appLink;
+
+        public event EventHandler<ImageDataRequestedEventArgs> ImageDataRequested
+        {
+            add { (this.MainPage as LocalHtmlBaseUrl).ImageDataRequested += value; }
+            remove { (this.MainPage as LocalHtmlBaseUrl).ImageDataRequested -= value; }
+        }
 
         public WebView Browser
         {
@@ -30,24 +34,34 @@ namespace okKindredXamarin
             route,
             shareImage,
         }
+
+        public UploadImages UploadImages
+        {
+            get
+            {
+                return (this.MainPage as LocalHtmlBaseUrl).UploadImages;
+            }
+            set
+            {
+                (this.MainPage as LocalHtmlBaseUrl).UploadImages = value;
+            }
+        }
                                
 
         public App ()
 		{
             // https://stackoverflow.com/questions/48425623/resize-webview-when-i-show-the-keyboard
-            AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);
-            this._uploadImages = null;
+            AndroidSpecific.Application.SetWindowSoftInputModeAdjust(this, AndroidSpecific.WindowSoftInputModeAdjust.Resize);            
             this._actions = new Queue<WebViewAction>();
             this._actions.Enqueue(WebViewAction.startup);
             this.MainPage = new LocalHtmlBaseUrl { Title = "BaseUrl" };
-
             this.Browser.Navigated += Browser_Navigated;
         }
 
 
-        public void SetSharedImagesToUpload(List<UploadImage> uploadImage)
+        public void SetSharedImageDetailsToUpload(UploadImages uploadImages)
         {
-            this._uploadImages = uploadImage;
+            this.UploadImages = uploadImages;
             this._actions.Enqueue(WebViewAction.shareImage);
 
             // Make sure browser has navigated first.
@@ -103,13 +117,11 @@ namespace okKindredXamarin
 
         private void ShareImages()
         {
-            if (this._uploadImages != null && this._uploadImages.Count > 0)
+            if (this.UploadImages != null && this.UploadImages.Count > 0)
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-
-                    var imageParams = $"[{string.Join(",", this._uploadImages.Select(i => i.ToString()))}]";
-                    var cmd = $"viewModel.uploadAndroidSharedFiles({imageParams});";
+                    var cmd = $"viewModel.uploadAndroidSharedFiles({this.UploadImages.ToString()});";
                     await this.Browser.EvaluateJavaScriptAsync(cmd);
                 });
             }
@@ -131,6 +143,15 @@ namespace okKindredXamarin
                     });
                 }
             }
+        }
+
+        public void SetSharedImageDataToUpload(UploadImage imageWithData)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var cmd = $"viewModel.uploadAndroidImageData({imageWithData.ToString()});";
+                await this.Browser.EvaluateJavaScriptAsync(cmd);
+            });
         }
     }
 }

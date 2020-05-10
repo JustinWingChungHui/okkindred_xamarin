@@ -15,9 +15,14 @@ namespace okKindredXamarin
 
     public class LocalHtmlBaseUrl : ContentPage
     {
-        private UploadImages _uploadImages;
+        private MediaImageResolver _mediaPickerImageResolver;
+
+        public UploadImages UploadImages { get; set; }
 
         public WebView browser;
+
+        public event EventHandler<ImageDataRequestedEventArgs> ImageDataRequested;
+        
 
         public LocalHtmlBaseUrl()
         {
@@ -86,13 +91,23 @@ namespace okKindredXamarin
 
         private void UploadFileData(int index)
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            if (this.UploadImages != null)
             {
+                if (this.UploadImages.Source == UploadImages.ImageSource.FilePicker)
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
 
-                var imageParam = _uploadImages.GetImageData(index).ToString();
-                var cmd = $"viewModel.uploadAndroidImageData({imageParam});";
-                await this.browser.EvaluateJavaScriptAsync(cmd);
-            });
+                        var imageParam = _mediaPickerImageResolver.GetImageData(index).ToString();
+                        var cmd = $"viewModel.uploadAndroidImageData({imageParam});";
+                        await this.browser.EvaluateJavaScriptAsync(cmd);
+                    });
+                }
+                else if (this.UploadImages.Source == UploadImages.ImageSource.AndroidShare)
+                {
+                    this.ImageDataRequested?.Invoke(this, new ImageDataRequestedEventArgs(index, UploadImages.ImageSource.AndroidShare));
+                }
+            }
         }
 
         private async Task UploadFileFromFilePicker(bool multiSelect)
@@ -129,12 +144,11 @@ namespace okKindredXamarin
             if (files != null && files.Any()) { 
                 var uploadImages = new List<UploadImage>();
 
-                this._uploadImages = new UploadImages(files);
+                this._mediaPickerImageResolver = new MediaImageResolver(files);
+                this.UploadImages = _mediaPickerImageResolver.GetImageDetails();
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-
-                    var imageParams = $"[{string.Join(",", _uploadImages.GetImageDetails().Select(i => i.ToString()))}]";
-                    var cmd = $"viewModel.uploadAndroidImageDetails({imageParams});";
+                    var cmd = $"viewModel.uploadAndroidImageDetails({this.UploadImages.ToString()});";
                     await this.browser.EvaluateJavaScriptAsync(cmd);
                 });
 

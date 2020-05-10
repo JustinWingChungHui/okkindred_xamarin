@@ -1,45 +1,29 @@
-﻿using Plugin.Media.Abstractions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace okKindredXamarin.Models
 {
-    public class UploadImages
+    public class UploadImages : List<UploadImage>
     {
-        private readonly List<MediaFile> _mediaFiles;
-
-        public UploadImages(List<MediaFile> mediaFiles)
+        public enum ImageSource
         {
-            this._mediaFiles = mediaFiles;
+            FilePicker,
+            AndroidShare
         }
 
-        public List<UploadImage> GetImageDetails()
+        public UploadImages(ImageSource source)
         {
-            var result = new List<UploadImage>();
-            
-            for (var i = 0; i < this._mediaFiles.Count; i++)
-            {
-                result.Add(new UploadImage(i, this._mediaFiles[i].Path));
-            }
-
-            return result;
+            this.Source = source;
         }
 
+        public ImageSource Source { get; }
 
-        public UploadImage GetImageData(int index)
-        {            
-            if (this._mediaFiles != null && this._mediaFiles.Count > index)
-            {
-                var mediaFile = this._mediaFiles[index];
-                using (var stream = mediaFile.GetStream())
-                {
-                    return new UploadImage(index, stream, mediaFile.Path);
-                }
-
-            }
-            return null;
+        public override string ToString()
+        {
+            return $"[{string.Join(",", this.Select(i => i.ToString()))}]";
         }
     }
 }

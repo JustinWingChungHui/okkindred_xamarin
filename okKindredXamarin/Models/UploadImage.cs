@@ -31,12 +31,12 @@ namespace okKindredXamarin.Models
             this.MimeType = $"image/{Path.GetExtension(path)}";
         }
 
-        public UploadImage(int index, byte[] data, string filename, string type)
+        public UploadImage(int index, byte[] data, string filename)
         {
             this.Index = index;
             this.Data = Convert.ToBase64String(data);
             this.FileName = filename;
-            this.MimeType = type; // $"image/{Path.GetExtension(path)}";
+            this.MimeType = $"image/{Path.GetExtension(filename)}";
         }
 
         public int Index { get; set; }
