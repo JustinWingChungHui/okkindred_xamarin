@@ -202,7 +202,7 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.f63b6c96.js" />
+    <Content Include="WebAssets\js\app.1276a321.js" />
     <Content Include="WebAssets\js\chunk-vendors.e8b51848.js" />
   </ItemGroup>
   <ItemGroup>

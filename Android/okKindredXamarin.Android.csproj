@@ -82,11 +82,11 @@
     <Compile Include="BaseUrl_Android.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <AndroidAsset Include="Assets\fonts\open-iconic.3cf97837.woff" />
     <AndroidAsset Include="Assets\fonts\open-iconic.47151e87.eot" />
     <AndroidAsset Include="Assets\fonts\open-iconic.527eff64.otf" />
     <AndroidAsset Include="Assets\fonts\open-iconic.93cc7aa6.ttf" />
+    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="sign.ps1" />
   </ItemGroup>
@@ -173,7 +173,7 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.f63b6c96.js" />
+    <AndroidAsset Include="Assets\js\app.1276a321.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\js\chunk-vendors.e8b51848.js" />

@@ -68,6 +68,15 @@ namespace okKindredXamarin
             this.Browser.Navigated += Browser_Navigated;
         }
 
+        public void SetSharedImageDataToUpload(UploadImage imageWithData)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var cmd = $"viewModel.uploadAndroidImageData({imageWithData.ToString()});";
+                await this.Browser.EvaluateJavaScriptAsync(cmd);
+            });
+        }
+
         protected override void OnAppLinkRequestReceived(Uri uri)
         {
             if (uri.Host.EndsWith("okkindred.com", StringComparison.OrdinalIgnoreCase))
@@ -143,15 +152,6 @@ namespace okKindredXamarin
                     });
                 }
             }
-        }
-
-        public void SetSharedImageDataToUpload(UploadImage imageWithData)
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                var cmd = $"viewModel.uploadAndroidImageData({imageWithData.ToString()});";
-                await this.Browser.EvaluateJavaScriptAsync(cmd);
-            });
         }
     }
 }
