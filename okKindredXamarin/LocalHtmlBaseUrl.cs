@@ -146,9 +146,15 @@ namespace okKindredXamarin
 
                 this._mediaPickerImageResolver = new MediaImageResolver(files);
                 this.UploadImages = _mediaPickerImageResolver.GetImageDetails();
+
+                if (!multiSelect)
+                {
+                    this.UploadImages[0].Data = _mediaPickerImageResolver.GetImageData(0).Data;
+                }
+
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var cmd = $"viewModel.uploadAndroidImageDetails({this.UploadImages.ToString()});";
+                    var cmd = $"viewModel.uploadAndroidImageDetails({this.UploadImages});";
                     await this.browser.EvaluateJavaScriptAsync(cmd);
                 });
 

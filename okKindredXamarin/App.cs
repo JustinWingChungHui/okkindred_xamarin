@@ -72,7 +72,7 @@ namespace okKindredXamarin
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                var cmd = $"viewModel.uploadAndroidImageData({imageWithData.ToString()});";
+                var cmd = $"viewModel.uploadAndroidImageData({imageWithData});";
                 await this.Browser.EvaluateJavaScriptAsync(cmd);
             });
         }
@@ -130,7 +130,7 @@ namespace okKindredXamarin
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var cmd = $"viewModel.uploadAndroidSharedFiles({this.UploadImages.ToString()});";
+                    var cmd = $"viewModel.uploadAndroidSharedFiles({this.UploadImages});";
                     await this.Browser.EvaluateJavaScriptAsync(cmd);
                 });
             }

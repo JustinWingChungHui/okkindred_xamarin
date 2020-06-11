@@ -56,10 +56,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.4.7-beta</Version>
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991265</Version>
+      <Version>4.7.0.937-pre4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -173,10 +173,10 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.1276a321.js" />
+    <AndroidAsset Include="Assets\js\app.533184f0.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.e8b51848.js" />
+    <AndroidAsset Include="Assets\js\chunk-vendors.b4e97754.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
@@ -185,7 +185,7 @@
     <AndroidAsset Include="Assets\css\app.6e320eb8.css" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.bb35edf8.css" />
+    <AndroidAsset Include="Assets\css\chunk-vendors.480fbe9f.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />

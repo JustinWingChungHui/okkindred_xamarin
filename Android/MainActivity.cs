@@ -5,7 +5,6 @@ using Android.Content.PM;
 using Android;
 using okKindredXamarin.Models;
 using System.Collections.Generic;
-using Plugin.CurrentActivity;
 using System.Collections;
 
 namespace okKindredXamarin.Droid
@@ -37,8 +36,6 @@ namespace okKindredXamarin.Droid
             this.CheckAppPermissions();
 
             base.OnCreate (bundle);
-
-            CrossCurrentActivity.Current.Init(this, bundle);
 
             global::Xamarin.Forms.Forms.Init (this, bundle);
 
@@ -92,7 +89,8 @@ namespace okKindredXamarin.Droid
         // https://github.com/jamesmontemagno/MediaPlugin
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void App_SharedImageDataRequested(object sender, ImageDataRequestedEventArgs e)
