@@ -37,9 +37,11 @@ namespace okKindredXamarin.Droid
             byte[] data;
             using (var stream = context.ContentResolver.OpenInputStream(uri))
             {
-                using MemoryStream ms = new MemoryStream();
-                stream.CopyTo(ms);
-                data = ms.ToArray();
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    data = ms.ToArray();
+                }
             }
 
             var fileName = GetFileName(context, uri);
@@ -67,7 +69,7 @@ namespace okKindredXamarin.Droid
         public static string GetFileName(Context context, Android.Net.Uri uri)
         {
             string filename = "";
-            string[] projection = { MediaStore.MediaColumns.DisplayName };
+            string[] projection = { MediaStore.IMediaColumns.DisplayName };
             var metaCursor = context.ContentResolver.Query(uri, projection, null, null, null);
             if (metaCursor != null)
             {
