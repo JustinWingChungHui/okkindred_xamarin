@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace okKindredXamarin
         {
             this.browser = new WebView
             {
-                Source = DependencyService.Get<IBaseUrl>().Get() + "index.html"
+                Source = DependencyService.Get<IBaseUrl>().Get() + "index.html",
+                
             };
 
             Content = this.browser;
@@ -54,33 +56,28 @@ namespace okKindredXamarin
         {
             try
             {
-                var prefixes = new List<string> { "mailto", "http", "www" };
-
-                foreach (var prefix in prefixes)
+                if (Uri.IsWellFormedUriString(e.Url, UriKind.Absolute) && !new Uri(e.Url).IsFile)
                 {
-                    if (e.Url.ToLowerInvariant().StartsWith(prefix))
+                    e.Cancel = true;
+                    await Launcher.OpenAsync(new Uri(e.Url));
+                }
+                else
+                {
+                    if (e.Url.Contains("xamarin_external_filepicker"))
                     {
-                        await Launcher.OpenAsync(new Uri(e.Url));
                         e.Cancel = true;
-
-                        return;
+                        var uploadMultiple = e.Url.Contains("multiple");
+                        await this.UploadFileFromFilePicker(uploadMultiple);
                     }
-                }
 
-                if (e.Url.Contains("xamarin_external_filepicker"))
-                {
-                    e.Cancel = true;
-                    var uploadMultiple = e.Url.Contains("multiple");
-                    await this.UploadFileFromFilePicker(uploadMultiple);
-                }
-
-                if (e.Url.Contains("xamarin_request_android_image_data"))
-                {
-                    e.Cancel = true;
-                    // Match number at the end
-                    var regex = new Regex(@"\d+$");
-                    var index = regex.Match(e.Url).Value;
-                    this.UploadFileData(int.Parse(index));
+                    if (e.Url.Contains("xamarin_request_android_image_data"))
+                    {
+                        e.Cancel = true;
+                        // Match number at the end
+                        var regex = new Regex(@"\d+$");
+                        var index = regex.Match(e.Url).Value;
+                        this.UploadFileData(int.Parse(index));
+                    }
                 }
             }
             catch(Exception ex)
