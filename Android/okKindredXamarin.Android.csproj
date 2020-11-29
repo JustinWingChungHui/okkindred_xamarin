@@ -67,7 +67,7 @@
       <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1560</Version>
+      <Version>4.8.0.1687</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +90,7 @@
     <Compile Include="BaseUrl_Android.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <AndroidAsset Include="Assets\fonts\open-iconic.3cf97837.woff" />
     <AndroidAsset Include="Assets\fonts\open-iconic.47151e87.eot" />
     <AndroidAsset Include="Assets\fonts\open-iconic.527eff64.otf" />
@@ -141,6 +142,84 @@
     <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-192x192.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-36x36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\android-icon-96x96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-114x114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-120x120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-144x144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-152x152.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-180x180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-57x57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-60x60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-76x76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon-precomposed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\apple-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\browserconfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\favicon-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\favicon-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\favicon-96x96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\ms-icon-144x144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\ms-icon-150x150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\ms-icon-310x310.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\favicons\ms-icon-70x70.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\img\default-skin.b257fa9c.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -180,18 +259,18 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.2dce0361.js" />
+    <AndroidAsset Include="Assets\js\app.54c48dd2.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.219dd95a.js" />
+    <AndroidAsset Include="Assets\js\chunk-vendors.0b99c374.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.455797a0.css" />
+    <AndroidAsset Include="Assets\css\app.45a7674b.css" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.944aff44.css" />
+    <AndroidAsset Include="Assets\css\chunk-vendors.bcc0726d.css" />
   </ItemGroup>
 </Project>

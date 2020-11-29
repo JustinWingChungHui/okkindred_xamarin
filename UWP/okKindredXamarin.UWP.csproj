@@ -91,11 +91,11 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.11" />
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -160,8 +160,34 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="WebAssets\css\app.455797a0.css" />
-    <Content Include="WebAssets\css\chunk-vendors.944aff44.css" />
+    <Content Include="WebAssets\css\app.45a7674b.css" />
+    <Content Include="WebAssets\css\chunk-vendors.bcc0726d.css" />
+    <Content Include="WebAssets\favicons\android-icon-144x144.png" />
+    <Content Include="WebAssets\favicons\android-icon-192x192.png" />
+    <Content Include="WebAssets\favicons\android-icon-36x36.png" />
+    <Content Include="WebAssets\favicons\android-icon-48x48.png" />
+    <Content Include="WebAssets\favicons\android-icon-72x72.png" />
+    <Content Include="WebAssets\favicons\android-icon-96x96.png" />
+    <Content Include="WebAssets\favicons\apple-icon-114x114.png" />
+    <Content Include="WebAssets\favicons\apple-icon-120x120.png" />
+    <Content Include="WebAssets\favicons\apple-icon-144x144.png" />
+    <Content Include="WebAssets\favicons\apple-icon-152x152.png" />
+    <Content Include="WebAssets\favicons\apple-icon-180x180.png" />
+    <Content Include="WebAssets\favicons\apple-icon-57x57.png" />
+    <Content Include="WebAssets\favicons\apple-icon-60x60.png" />
+    <Content Include="WebAssets\favicons\apple-icon-72x72.png" />
+    <Content Include="WebAssets\favicons\apple-icon-76x76.png" />
+    <Content Include="WebAssets\favicons\apple-icon-precomposed.png" />
+    <Content Include="WebAssets\favicons\apple-icon.png" />
+    <Content Include="WebAssets\favicons\browserconfig.xml" />
+    <Content Include="WebAssets\favicons\favicon-16x16.png" />
+    <Content Include="WebAssets\favicons\favicon-32x32.png" />
+    <Content Include="WebAssets\favicons\favicon-96x96.png" />
+    <Content Include="WebAssets\favicons\favicon.ico" />
+    <Content Include="WebAssets\favicons\ms-icon-144x144.png" />
+    <Content Include="WebAssets\favicons\ms-icon-150x150.png" />
+    <Content Include="WebAssets\favicons\ms-icon-310x310.png" />
+    <Content Include="WebAssets\favicons\ms-icon-70x70.png" />
     <Content Include="WebAssets\img\about\justin_and_adrian.jpg" />
     <Content Include="WebAssets\img\default-skin.b257fa9c.svg" />
     <Content Include="WebAssets\img\gallery\folder.svg" />
@@ -176,8 +202,8 @@
     <Content Include="WebAssets\img\portrait_200.png" />
     <Content Include="WebAssets\img\portrait_80.png" />
     <Content Include="WebAssets\index.html" />
-    <Content Include="WebAssets\js\app.2dce0361.js" />
-    <Content Include="WebAssets\js\chunk-vendors.219dd95a.js" />
+    <Content Include="WebAssets\js\app.54c48dd2.js" />
+    <Content Include="WebAssets\js\chunk-vendors.0b99c374.js" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -197,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="okKindredXamarin.UWP_TemporaryKey.pfx" />
+    <None Include="WebAssets\favicons\manifest.json" />
     <None Include="WebAssets\fonts\open-iconic.3cf97837.woff" />
     <None Include="WebAssets\fonts\open-iconic.47151e87.eot" />
     <Content Include="WebAssets\fonts\open-iconic.527eff64.otf" />
