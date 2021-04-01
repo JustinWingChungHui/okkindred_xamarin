@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using okKindredXamarin;
 using UIKit;
 
 using Xamarin.Forms;
@@ -17,7 +18,7 @@ namespace WorkingWithWebview.iOS
 		{
 			global::Xamarin.Forms.Forms.Init ();
 
-			LoadApplication (new App ());  // method is new in 1.3
+			LoadApplication (new App());  // method is new in 1.3
 
 			return base.FinishedLaunching (app, options);
 		}

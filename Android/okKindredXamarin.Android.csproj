@@ -61,13 +61,15 @@
     <AndroidSigningKeyAlias>GooglePlay</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>
     </AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>
+    </AndroidSigningKeyStore>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1687</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -90,11 +92,11 @@
     <Compile Include="BaseUrl_Android.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <AndroidAsset Include="Assets\fonts\open-iconic.3cf97837.woff" />
     <AndroidAsset Include="Assets\fonts\open-iconic.47151e87.eot" />
     <AndroidAsset Include="Assets\fonts\open-iconic.527eff64.otf" />
     <AndroidAsset Include="Assets\fonts\open-iconic.93cc7aa6.ttf" />
+    <AndroidAsset Include="Assets\favicons\manifest.json" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="sign.ps1" />
   </ItemGroup>
@@ -140,6 +142,61 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\default-skin.b257fa9c.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\open-iconic.eca2c267.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\portrait_200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\portrait_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\about\justin_and_adrian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\gallery\folder.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\gallery\gallery_thumb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\gallery\image.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\introduction\family_invite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\introduction\family_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\introduction\family_photo-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\app.622f4674.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\chunk-vendors.0a9b811b.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\app.a07f74a5.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\chunk-vendors.5a32e650.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\android-icon-144x144.png" />
@@ -218,59 +275,5 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\favicons\ms-icon-70x70.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\default-skin.b257fa9c.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\open-iconic.eca2c267.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\portrait_200.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\portrait_80.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\about\justin_and_adrian.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\gallery\folder.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\gallery\gallery_thumb.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\gallery\image.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\introduction\family_invite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\introduction\family_map.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\introduction\family_photo-share.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.54c48dd2.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.0b99c374.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.45a7674b.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.bcc0726d.css" />
   </ItemGroup>
 </Project>
