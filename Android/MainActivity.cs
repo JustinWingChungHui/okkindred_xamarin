@@ -6,6 +6,9 @@ using Android;
 using okKindredXamarin.Models;
 using System.Collections.Generic;
 using System.Collections;
+using Android.Views;
+using Xamarin.Forms;
+using System;
 
 namespace okKindredXamarin.Droid
 {
@@ -60,8 +63,10 @@ namespace okKindredXamarin.Droid
                 this._app.SetSharedImageDetailsToUpload(images);
                 this._app.ImageDataRequested += App_SharedImageDataRequested;
             }
-        }
 
+            this._app.BrowserNavigating += app_BrowserNavigating;
+            this._app.BrowserNavigated += app_BrowserNavigated;
+        }
 
         protected override void OnNewIntent(Intent intent)
         {
@@ -100,6 +105,20 @@ namespace okKindredXamarin.Droid
                 var imageWithData = SharedContentResolver.CreateUploadImageWithData(e.Index, ApplicationContext, this._sharedIntentImages);
                 this._app.SetSharedImageDataToUpload(imageWithData);
             }
+        }
+
+        private void app_BrowserNavigating(object sender, Xamarin.Forms.WebNavigatingEventArgs e)
+        {
+            // Keep screen on when uploading images
+            if (e.Url.Contains("xamarin_request_android_image_data"))
+            {
+                Window.AddFlags(WindowManagerFlags.KeepScreenOn);
+            }
+        }
+
+        private void app_BrowserNavigated(object sender, WebNavigatedEventArgs e)
+        {
+            Window.ClearFlags(WindowManagerFlags.KeepScreenOn);
         }
     }
 

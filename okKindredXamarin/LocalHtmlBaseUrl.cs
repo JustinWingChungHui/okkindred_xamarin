@@ -22,8 +22,7 @@ namespace okKindredXamarin
 
         public WebView browser;
 
-        public event EventHandler<ImageDataRequestedEventArgs> ImageDataRequested;
-        
+        public event EventHandler<ImageDataRequestedEventArgs> ImageDataRequested;      
 
         public LocalHtmlBaseUrl()
         {

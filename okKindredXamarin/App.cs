@@ -19,6 +19,18 @@ namespace okKindredXamarin
             remove { (this.MainPage as LocalHtmlBaseUrl).ImageDataRequested -= value; }
         }
 
+        public event EventHandler<WebNavigatingEventArgs> BrowserNavigating
+        {
+            add { this.Browser.Navigating += value; }
+            remove { this.Browser.Navigating -= value; }
+        }
+
+        public event EventHandler<WebNavigatedEventArgs> BrowserNavigated
+        {
+            add { this.Browser.Navigated += value; }
+            remove { this.Browser.Navigated -= value; }
+        }
+
         public WebView Browser
         {
             get
