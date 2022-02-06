@@ -71,7 +71,7 @@
       <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2012</Version>
+      <Version>5.0.0.2337</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -145,19 +145,19 @@
     <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.5bdcf59a.js" />
+    <AndroidAsset Include="Assets\js\app.4044fa17.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.42c11581.js" />
+    <AndroidAsset Include="Assets\js\chunk-vendors.70b7cf12.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.5eb952c3.css" />
+    <AndroidAsset Include="Assets\css\app.d10a99f6.css" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\chunk-vendors.d3bafbac.css" />
+    <AndroidAsset Include="Assets\css\chunk-vendors.1de2fe30.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\img\default-skin.b257fa9c.svg" />
