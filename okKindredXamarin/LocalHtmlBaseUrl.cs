@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using okKindredXamarin.Models;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -66,7 +63,7 @@ namespace okKindredXamarin
                     {
                         e.Cancel = true;
                         var uploadMultiple = e.Url.Contains("multiple");
-                        await this.UploadFileFromFilePicker(uploadMultiple);
+                        await this.UploadFileFromXamarinFilePicker(uploadMultiple);
                     }
 
                     if (e.Url.Contains("xamarin_request_android_image_data"))
@@ -94,7 +91,7 @@ namespace okKindredXamarin
                     Device.BeginInvokeOnMainThread(async () =>
                     {
 
-                        var imageParam = _mediaPickerImageResolver.GetImageData(index).ToString();
+                        var imageParam = await _mediaPickerImageResolver.GetImageData(index);
                         var cmd = $"viewModel.uploadAndroidImageData({imageParam});";
                         await this.browser.EvaluateJavaScriptAsync(cmd);
                     });
@@ -106,38 +103,32 @@ namespace okKindredXamarin
             }
         }
 
-        private async Task UploadFileFromFilePicker(bool multiSelect)
+        private async Task UploadFileFromXamarinFilePicker(bool multiSelect)
         {
-            await CrossMedia.Current.Initialize();
-
-            var files = new List<MediaFile>() ;
-
+            IEnumerable<FileResult> files = new List<FileResult>();
             if (multiSelect)
             {
-                files = await CrossMedia.Current.PickPhotosAsync(
-                    new PickMediaOptions
-                    {
-                        RotateImage = false,
-                    }, 
-                    new MultiPickerOptions
-                    {
-                        MaximumImagesCount = 100,
-                    });
+                files = await FilePicker.PickMultipleAsync(new PickOptions
+                {
+                    FileTypes = FilePickerFileType.Images,
+                });
+
             }
             else
             {
-                var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                var file = await FilePicker.PickAsync(new PickOptions
                 {
-                    RotateImage = false
+                    FileTypes = FilePickerFileType.Images,
                 });
 
                 if (file != null)
                 {
-                    files = new List<MediaFile> { file };
+                    files = new List<FileResult> { file };
                 }
             }
 
-            if (files != null && files.Any()) { 
+            if (files != null && files.Any())
+            {
                 var uploadImages = new List<UploadImage>();
 
                 this._mediaPickerImageResolver = new MediaImageResolver(files);
@@ -145,7 +136,7 @@ namespace okKindredXamarin
 
                 if (!multiSelect)
                 {
-                    this.UploadImages[0].Data = _mediaPickerImageResolver.GetImageData(0).Data;
+                    this.UploadImages[0].Data = (await _mediaPickerImageResolver.GetImageData(0)).Data;
                 }
 
                 Device.BeginInvokeOnMainThread(async () =>

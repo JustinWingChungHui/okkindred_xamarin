@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.okkindred.app" android:installLocation="auto" android:versionCode="33" android:versionName="Package updates, fix to modals">
-	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="30" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.okkindred.app" android:installLocation="auto" android:versionCode="34" android:versionName="Allow media location access">
+	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="33" />
 	<application android:label="ok!Kindred" android:icon="@drawable/Icon" android:theme="@style/MainTheme">
 		<provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
 	</application>
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 </manifest>

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Collections;
 using Android.Views;
 using Xamarin.Forms;
-using System;
 
 namespace okKindredXamarin.Droid
 {
@@ -38,9 +37,10 @@ namespace okKindredXamarin.Droid
 
             this.CheckAppPermissions();
 
-            base.OnCreate (bundle);
+            base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init (this, bundle);
+            Xamarin.Essentials.Platform.Init(this, bundle);
 
             this._app = new App();
             LoadApplication(this._app); // method is new in 1.3
@@ -83,9 +83,15 @@ namespace okKindredXamarin.Droid
             else
             {
                 if (PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName) != Permission.Granted
-                    && PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted)
+                    || PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted
+                    || PackageManager.CheckPermission(Manifest.Permission.AccessMediaLocation, PackageName) != Permission.Granted)
                 {
-                    var permissions = new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
+                    var permissions = new string[] 
+                    { 
+                        Manifest.Permission.ReadExternalStorage, 
+                        Manifest.Permission.WriteExternalStorage, 
+                        Manifest.Permission.AccessMediaLocation 
+                    };
                     RequestPermissions(permissions, 1);
                 }
             }

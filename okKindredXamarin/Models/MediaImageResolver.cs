@@ -1,41 +1,41 @@
-﻿using Plugin.Media.Abstractions;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace okKindredXamarin.Models
 {
     public class MediaImageResolver
     {
-        private readonly List<MediaFile> _mediaFiles;
+        private readonly List<FileResult> _xamarinMediaFiles;
 
-        public MediaImageResolver(List<MediaFile> mediaFiles)
+        public MediaImageResolver(IEnumerable<FileResult> xamarinMediaFiles)
         {
-            this._mediaFiles = mediaFiles;
+            this._xamarinMediaFiles = xamarinMediaFiles.ToList();
         }
 
         public UploadImages GetImageDetails()
         {
             var result = new UploadImages(UploadImages.ImageSource.FilePicker);
             
-            for (var i = 0; i < this._mediaFiles.Count; i++)
+
+            for (var i = 0; i < this._xamarinMediaFiles.Count; i++)
             {
-                result.Add(new UploadImage(i, this._mediaFiles[i].Path));
+                result.Add(new UploadImage(i, this._xamarinMediaFiles[i].FullPath));
             }
 
             return result;
         }
 
 
-        public UploadImage GetImageData(int index)
+        public async Task<UploadImage> GetImageData(int index)
         {            
-            if (this._mediaFiles != null && this._mediaFiles.Count > index)
+            if (this._xamarinMediaFiles != null && this._xamarinMediaFiles.Count > index)
             {
-                var mediaFile = this._mediaFiles[index];
-                using (var stream = mediaFile.GetStream())
+                var mediaFile = this._xamarinMediaFiles[index];
+                using (var stream = await mediaFile.OpenReadAsync())
                 {
-                    return new UploadImage(index, stream, mediaFile.Path);
+                    return new UploadImage(index, stream, mediaFile.FullPath);
                 }
 
             }

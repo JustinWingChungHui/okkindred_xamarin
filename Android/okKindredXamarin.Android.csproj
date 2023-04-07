@@ -67,11 +67,8 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xam.Plugin.Media">
-      <Version>5.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2478</Version>
+      <Version>5.0.0.2578</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -185,10 +182,10 @@
     <AndroidAsset Include="Assets\img\introduction\family_tree.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\app.e623107c.js" />
+    <AndroidAsset Include="Assets\js\app.3edaca4c.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\js\chunk-vendors.90a1c43c.js" />
+    <AndroidAsset Include="Assets\js\chunk-vendors.6c0dd37a.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\error.html" />
@@ -197,7 +194,7 @@
     <AndroidAsset Include="Assets\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\css\app.3f7d377a.css" />
+    <AndroidAsset Include="Assets\css\app.92f53b68.css" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\css\chunk-vendors.b8b29f8a.css" />
